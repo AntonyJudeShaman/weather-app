@@ -42,7 +42,7 @@ if place == '':
     col.write("Please enter a city")
 
 unit = col.selectbox("Select Temperature Unit", ("Celsius", "Fahrenheit"))
-g_type = col.selectbox("Select Graph Type", ("Line Graph", "Bar Graph"))
+g_type = col.selectbox("Select Graph Type", ("Line Chart", "Bar Graph","Scatter Plot"))
 
 submit_button = col.button("Submit")
 
@@ -79,7 +79,13 @@ if submit_button:
                 plt.ylabel('Temperature (' + unit + ')')
                 plt.title('Temperature Variation')
                 plt.xticks(rotation=90)
+                st.pyplot(plt)    
+            elif g_type == "Scatter Plot":
+                plt.scatter(dates_list, temperatures)
+                plt.xlabel('Date')
+                plt.ylabel('Temperature (' + unit + ')')
+                plt.title('Temperature Variation')
+                plt.xticks(rotation=90)
                 st.pyplot(plt)
             else:
                 st.write("Invalid graph type selected.")
-
