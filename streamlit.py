@@ -66,7 +66,7 @@ if submit_button:
                 st.write(f"Date: {date}, Temperature: {temp} {unit}")
 
         with col2:
-            if g_type == "Line Graph":
+            if g_type == "Line Chart":
                 plt.plot(dates_list, temperatures)
                 plt.xlabel('Date')
                 plt.ylabel('Temperature (' + unit + ')')
